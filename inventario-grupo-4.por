@@ -12,15 +12,15 @@ programa
 
 		opcao = menuEscolherOpcao()
 		escreva(opcao)
-		/*
+		sorteioEstoque()
+		
 		escolha(opcao)
 		{
 			caso 1: // Função que apresenta a legenda dos produtos a partir de seus códigos
 		     caso 2: // Função que atualiza a quantidade dos produtos escolhidos pelo usuário
 		     caso 3: // Função que imprime os produtos em ordem alfabética
 		     caso 4: // Nada
-    		}
-    		*/
+    		}    		
 	}
 
 	funcao inteiro menuEscolherOpcao()
@@ -75,7 +75,7 @@ programa
 		inteiro x = 0
 		inteiro p = 20
 		inteiro t = 3
-		cadeia produtos[] = {"camisa","camiseta","calça","Bermuda"}
+		cadeia produtos[] = {"camisa","camiseta","calça","bermuda"}
 		cadeia cores[] = {"vermelho","preto","amarelo","azul","branco","verde"}
 		cadeia tamanho[] = {"PP","P","M","G","GG"}
 		cadeia estoque[20][3]
@@ -88,23 +88,24 @@ programa
 			estoque[i][1] = cores[util.sorteia(0,5)]
 			estoque[i][2] = tamanho[util.sorteia(0,4)]
 			
-		// Iteração que verifica repetição de itens
+			// Iteração que verifica repetição de itens
 			para (inteiro j = 0; j < i; j++)
 			{
 				se (
 					estoque[j][0] == estoque[i][0] e
-					estoque[j][1] == estoque[i][0] e
-					estoque[j][2] == estoque[i][0]
+					estoque[j][1] == estoque[i][1] e
+					estoque[j][2] == estoque[i][2]
 				)
 				{
 					i--
 					// Tire as barras de comentário abaixo para debug
-					// escreva("========= REPETIDO =========\n")
+					//escreva("========= REPETIDO =========\n")
 				}
 			}
+			// Tire as barras de comentário abaixo para debug
+			// escreva(estoque[i][0], " ", estoque[i][1], " ", estoque[i][2], "\n")
 		}
-				// Tire as barras de comentário abaixo para debug
-				// escreva(estoque[i][0], " ", estoque[i][1], " ", estoque[i][2], "\n")
+				
 	}
 }
 
@@ -113,7 +114,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 612; 
+ * @POSICAO-CURSOR = 617; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
