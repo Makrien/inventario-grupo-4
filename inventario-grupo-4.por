@@ -66,6 +66,25 @@ programa
 			LINHA_DUPLA
 			)
 	}
+
+	funcao sorteioEstoque(){
+		inteiro i = 0
+		inteiro x = 0
+		inteiro p = 20
+		inteiro t = 3
+		cadeia produtos[] = {"camisa","camiseta","calça","Bermuda"}
+		cadeia cores[] = {"vermelho","preto","amarelo","azul","branco","verde"}
+		cadeia tamanho[] = {"PP","P","M","G","GG"}
+		cadeia estoque[20][3]
+			                      
+														
+		
+		para ( i=0; i<p; i++){
+				estoque[i][0] = produtos[u.sorteia(0,3)]
+				estoque[i][1] = cores[u.sorteia(0,5)]
+				estoque[i][2] = tamanho[u.sorteia(0,4)]
+					 
+		}
 }
 
 /* $$$ Portugol Studio $$$ 
@@ -73,7 +92,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1468; 
+ * @POSICAO-CURSOR = 1973; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
