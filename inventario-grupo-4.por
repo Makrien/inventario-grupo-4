@@ -1,6 +1,7 @@
 programa
 {
 	inclua biblioteca Tipos --> tipos
+	inclua biblioteca Util --> util
 
 	const cadeia LINHA_SIMPLES = "-----------------------------------\n"
 	const cadeia LINHA_DUPLA = "===================================\n"
@@ -67,7 +68,8 @@ programa
 			)
 	}
 
-	funcao sorteioEstoque(){
+	funcao sorteioEstoque()
+	{
 		inteiro i = 0
 		inteiro x = 0
 		inteiro p = 20
@@ -79,12 +81,30 @@ programa
 			                      
 														
 		
-		para ( i=0; i<p; i++){
-				estoque[i][0] = produtos[u.sorteia(0,3)]
-				estoque[i][1] = cores[u.sorteia(0,5)]
-				estoque[i][2] = tamanho[u.sorteia(0,4)]
-					 
+		para ( i=0; i<p; i++)
+		{
+			estoque[i][0] = produtos[util.sorteia(0,3)]
+			estoque[i][1] = cores[util.sorteia(0,5)]
+			estoque[i][2] = tamanho[util.sorteia(0,4)]
+			
+		// Iteração que verifica repetição de itens
+			para (inteiro j = 0; j < i; j++)
+			{
+				se (
+					estoque[j][0] == estoque[i][0] e
+					estoque[j][1] == estoque[i][0] e
+					estoque[j][2] == estoque[i][0]
+				)
+				{
+					i--
+					// Tire as barras de comentário abaixo para debug
+					// escreva("========= REPETIDO =========\n")
+				}
+			}
 		}
+				// Tire as barras de comentário abaixo para debug
+				// escreva(estoque[i][0], " ", estoque[i][1], " ", estoque[i][2], "\n")
+	}
 }
 
 /* $$$ Portugol Studio $$$ 
@@ -92,7 +112,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1973; 
+ * @POSICAO-CURSOR = 2413; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
