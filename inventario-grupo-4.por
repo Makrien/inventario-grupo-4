@@ -8,18 +8,19 @@ programa
 	
 	funcao inicio()
 	{
-    inteiro opcao
+		inteiro opcao
 
 		opcao = menuEscolherOpcao()
-    escreva(opcao)
-
-    escolha(opcao)
-    {
-      caso 1: // Função que apresenta a legenda dos produtos a partir de seus códigos
-      caso 2: // Função que atualiza a quantidade dos produtos escolhidos pelo usuário
-      caso 3: // Função que imprime os produtos em ordem alfabética
-      caso 4: // Nada
-    }
+		escreva(opcao)
+		/*
+		escolha(opcao)
+		{
+			caso 1: // Função que apresenta a legenda dos produtos a partir de seus códigos
+		     caso 2: // Função que atualiza a quantidade dos produtos escolhidos pelo usuário
+		     caso 3: // Função que imprime os produtos em ordem alfabética
+		     caso 4: // Nada
+    		}
+    		*/
 	}
 
 	funcao inteiro menuEscolherOpcao()
@@ -112,7 +113,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 2413; 
+ * @POSICAO-CURSOR = 612; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
