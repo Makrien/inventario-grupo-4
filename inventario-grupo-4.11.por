@@ -6,19 +6,22 @@ programa
 	
 	const cadeia LINHA_SIMPLES = "-----------------------------------\n"
 	const cadeia LINHA_DUPLA = "===================================\n"
-	const inteiro T =20
+	const inteiro T = 3
 
 		cadeia vRoupas[] = {"Camisa", "Camiseta", "Calça", "Bermuda"}
 		cadeia vCores[] = {"vermelho", "preto", "amarelo", "azul", "branco", "verde"}
 		cadeia vTamanhos[] = {"PP", "P", "M", "G", "GG"}
 
 		cadeia vProdutos[T]
+		inteiro vQuantidade[T]
 		
 	funcao inicio()
 	{
 		geradorEstoque()
 		//menu()
-		localizarCodigo(vProdutos)
+		localizarCodigo(vProdutos, vQuantidade)
+		
+		
 	}
 	
 	
@@ -115,25 +118,71 @@ programa
 			LINHA_DUPLA
 			)
 	}
-
+	/*
+	 * 
+	funcao cadastrarQuant(cadeia prod[][],real vlProdutos[]){
+        
+        escreva("Cód\tDescrição do produto\tPreço\n")
+        
+        para (inteiro i = 0; i <T; i++){
+                escreva(prod[0][i] + "\t"+ produtos [1][i] + "\t\tR$ " + vlProdutos[i] +" Quant: ")
+                leia(vQuant[i])
+                
+        }
+                
+    }
+	*/
 	
-	funcao localizarCodigo(cadeia vetor[]){
+	funcao localizarCodigo(cadeia vetor[], inteiro vQuant[]){
 		
 		inteiro codProd
 		cadeia codProd2
-		
-		escreva("digite o código do produto.")
-		leia(codProd2)
-													
-			
-			se(tipos.cadeia_e_inteiro(codProd2, 10)){				
-			   codProd = tipos.cadeia_para_inteiro(codProd2, 10)			   
-			   se(codProd >= 1 e codProd < 20){
-		 	   escreva(vetor[(codProd -1)])			 	
-		 	   } senao escreva("opção inválida")			 	
-			}senao escreva("opção inválida")
+		inteiro quantiadde
+		inteiro i = 0
+		caracter opcao
+		logico localizou = falso
+
+		faca{
+			para(i = 0; i<T; i++){
 				
+				escreva("\nDigite o código do produto.")
+			     leia(codProd2)
+														
+				
+				se(tipos.cadeia_e_inteiro(codProd2, 10)){				
+				   codProd = tipos.cadeia_para_inteiro(codProd2, 10)			   
+				   se(codProd >= 0 e codProd < T){		 	   
+			 	   escreva(vetor[(codProd -1)])// exibir o produto selecionado 			 	 			 	   
+				   escreva("\nInforme a quantidade do produto: ")
+				   leia(vQuant[i-1])
+				   	
+				   pare		 	     	
+			 	   } senao escreva("opção inválida")		 	   		 	   			 	
+				}senao escreva("opção inválida")				 
+			}
+			escreva("Deseja add nova quantidade de outro produto?")
+			leia(opcao)
+		}enquanto((opcao == 's') ou (opcao == 'S'))
 			
+
+		
+		
+						
+
+		
+		/*
+		funcao cadastrarQuant(cadeia prod[][],real vlProdutos[]){
+        
+        	escreva("Cód\tDescrição do produto\tPreço\n")
+        
+        	para (inteiro i = 0; i <T; i++){
+                escreva(prod[0][i] + "\t"+ produtos [1][i] + "\t\tR$ " + vlProdutos[i] +" Quant: ")
+                leia(vQuant[i])
+                
+        }
+                
+    }
+		*/
      } 
 }
 
@@ -142,10 +191,10 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 2739; 
- * @DOBRAMENTO-CODIGO = [24, 38, 72, 109];
+ * @POSICAO-CURSOR = 3087; 
+ * @DOBRAMENTO-CODIGO = [27, 41, 75, 112, 120];
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
+ * @SIMBOLOS-INSPECIONADOS = {vProdutos, 15, 9, 9}-{vQuantidade, 16, 10, 11}-{vQuant, 136, 48, 6}-{i, 141, 10, 1};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
