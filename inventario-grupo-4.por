@@ -1,5 +1,6 @@
 programa
 {
+	inclua biblioteca Util --> u
 	inclua biblioteca Tipos --> tipos
 
 	const cadeia LINHA_SIMPLES = "-----------------------------------\n"
@@ -68,23 +69,42 @@ programa
 	}
 
 	funcao sorteioEstoque(){
-		inteiro i = 0
-		inteiro x = 0
-		inteiro p = 20
-		inteiro t = 3
-		cadeia produtos[] = {"camisa","camiseta","calça","Bermuda"}
+		const inteiro EST = 20
+		cadeia tipos[] = {"camisa","camiseta","calça","Bermuda"}
 		cadeia cores[] = {"vermelho","preto","amarelo","azul","branco","verde"}
 		cadeia tamanho[] = {"PP","P","M","G","GG"}
-		cadeia estoque[20][3]
-			                      
-														
+		cadeia produtos[EST]
 		
-		para ( i=0; i<p; i++){
-				estoque[i][0] = produtos[u.sorteia(0,3)]
-				estoque[i][1] = cores[u.sorteia(0,5)]
-				estoque[i][2] = tamanho[u.sorteia(0,4)]
-					 
+		inteiro sorteio1, sorteio2, sorteio3
+		cadeia item
+		logico igual
+
+		para (inteiro i=0; i<EST; i++){
+			faca {
+				igual = falso
+				
+				sorteio1 = u.sorteia(0, 3)
+				sorteio2 = u.sorteia(0, 5)
+				sorteio3 = u.sorteia(0, 4)
+				
+				item = tipos[sorteio1] + " " + cores[sorteio2] + " " + tamanho[sorteio3]
+	
+				para (inteiro j=0; j<EST; j++){
+					se (item == produtos[j]) {
+						igual = verdadeiro
+						pare
+					}					
+				}
+	
+				se (nao igual)
+					produtos[i] = item
+			} enquanto (igual)
 		}
+
+		para (inteiro i=0; i<EST; i++){
+			escreva(produtos[i] +"\n")
+		}
+	}
 }
 
 /* $$$ Portugol Studio $$$ 
@@ -92,7 +112,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1973; 
+ * @POSICAO-CURSOR = 2207; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
