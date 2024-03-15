@@ -18,6 +18,7 @@ programa
 	{
 		geradorEstoque()
 		menu()
+		
 	}
 	
 	
@@ -29,11 +30,13 @@ programa
 	
 	    escolha(opcao)
 	    {
-	      caso 1: // Função que apresenta a legenda dos produtos a partir de seus códigos
+	      caso 1: localizarCodigo(vProdutos)pare
 	      caso 2: // Função que atualiza a quantidade dos produtos escolhidos pelo usuário
-	      caso 3: // Função que imprime os produtos em ordem alfabética
+	      caso 3: imprimir() pare
 	      caso 4: // Nada
+	      caso contrario:escreva("Opção Inválida")
 	    }
+
 	}
 	funcao geradorEstoque()
 	{
@@ -65,7 +68,7 @@ programa
 		}
 			
 		//para (inteiro t=0; t<T;t++){
-			//escreva(vProdutos[t] +"\n")
+			//escreva((t+1)," - ",vProdutos[t] +"\n")
 		//}
 		
 	}
@@ -114,6 +117,36 @@ programa
 			LINHA_DUPLA
 			)
 	}
+	funcao pl(){ // pula uma linha
+		escreva("\n")
+	}
+	
+	funcao localizarCodigo(cadeia vetor[]){
+		
+		inteiro codProd
+		cadeia codProd2
+
+		pl()// pula uma linha
+		escreva("Digite o código do produto.")
+		leia(codProd2)
+													
+		
+			se(tipos.cadeia_e_inteiro(codProd2, 10)){				
+			   codProd = tipos.cadeia_para_inteiro(codProd2, 10)
+			   se(codProd >= 1 e codProd < 20){
+		 	   escreva(vetor[(codProd-1)])			 	
+		 	   } senao escreva("opção inválida")			 	
+			}senao escreva("opção inválida")
+				
+			
+     } 
+	funcao imprimir(){
+		limpa()
+		para (inteiro t=0; t<T;t++){
+			escreva((t+1)," - ",vProdutos[t] +"\n")
+		}
+	}
+		
 }
 
 /* $$$ Portugol Studio $$$ 
@@ -121,7 +154,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 479; 
+ * @POSICAO-CURSOR = 3053; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
