@@ -136,33 +136,29 @@ programa
 	funcao localizarCodigo(cadeia vetor[], inteiro vQuant[]){
 		
 		inteiro codProd
-		cadeia codProd2
-		inteiro quantiadde
-		inteiro i = 0
+		cadeia codProd2		
+		inteiro i = 0		
 		caracter opcao
-		logico localizou = falso
+		
 
 		faca{
-			para(i = 0; i<T; i++){
-				
-				escreva("\nDigite o código do produto.")
-			     leia(codProd2)
-														
-				
+			escreva("\nDigite o código do produto.")
+			leia(codProd2)				
+																														
 				se(tipos.cadeia_e_inteiro(codProd2, 10)){				
 				   codProd = tipos.cadeia_para_inteiro(codProd2, 10)			   
-				   se(codProd >= 0 e codProd < T){		 	   
-			 	   escreva(vetor[(codProd -1)])// exibir o produto selecionado 			 	 			 	   
-				   escreva("\nInforme a quantidade do produto: ")
-				   leia(vQuant[i-1])
-				   	
-				   pare		 	     	
-			 	   } senao escreva("opção inválida")		 	   		 	   			 	
-				}senao escreva("opção inválida")				 
-			}
+					   se(codProd >= 1 e codProd <= 3){		 	   
+				 	   escreva(vetor[(codProd -1)])// exibir o produto selecionado 			 	 			 	   
+					   escreva("\nInforme a quantidade do produto: ")
+					   leia(vQuant[codProd-1])				   				  				   				   					  		 	     	
+				 	   } senao escreva("opção inválida")		 	   		 	   			 	
+				}senao escreva("opção inválida")							 
+			
 			escreva("Deseja add nova quantidade de outro produto?")
 			leia(opcao)
 		}enquanto((opcao == 's') ou (opcao == 'S'))
+		 escreva("Obrigado por utilizar o programa!")		 
+    }
 			
 
 		
@@ -183,7 +179,7 @@ programa
                 
     }
 		*/
-     } 
+      
 }
 
 /* $$$ Portugol Studio $$$ 
@@ -191,10 +187,10 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 3087; 
+ * @POSICAO-CURSOR = 3781; 
  * @DOBRAMENTO-CODIGO = [27, 41, 75, 112, 120];
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {vProdutos, 15, 9, 9}-{vQuantidade, 16, 10, 11}-{vQuant, 136, 48, 6}-{i, 141, 10, 1};
+ * @SIMBOLOS-INSPECIONADOS = {vQuant, 136, 48, 6}-{i, 140, 10, 1};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
