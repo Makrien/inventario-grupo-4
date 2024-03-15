@@ -1,5 +1,6 @@
 programa
 {
+	inclua biblioteca Util --> u
 	inclua biblioteca Tipos --> tipos
 	inclua biblioteca Util --> util
 
@@ -69,6 +70,7 @@ programa
 			)
 	}
 
+<<<<<<< HEAD
 	funcao sorteioEstoque()
 	{
 		inteiro i = 0
@@ -76,12 +78,16 @@ programa
 		inteiro p = 20
 		inteiro t = 3
 		cadeia produtos[] = {"camisa","camiseta","calça","bermuda"}
+=======
+	funcao sorteioEstoque(){
+		const inteiro EST = 20
+		cadeia tipos[] = {"camisa","camiseta","calça","Bermuda"}
+>>>>>>> 642a9fffc91123ca29e7beae12b36b0b47079302
 		cadeia cores[] = {"vermelho","preto","amarelo","azul","branco","verde"}
 		cadeia tamanho[] = {"PP","P","M","G","GG"}
-		cadeia estoque[20][3]
-			                      
-														
+		cadeia produtos[EST]
 		
+<<<<<<< HEAD
 		para ( i=0; i<p; i++)
 		{
 			estoque[i][0] = produtos[util.sorteia(0,3)]
@@ -106,6 +112,37 @@ programa
 			// escreva(estoque[i][0], " ", estoque[i][1], " ", estoque[i][2], "\n")
 		}
 				
+=======
+		inteiro sorteio1, sorteio2, sorteio3
+		cadeia item
+		logico igual
+
+		para (inteiro i=0; i<EST; i++){
+			faca {
+				igual = falso
+				
+				sorteio1 = u.sorteia(0, 3)
+				sorteio2 = u.sorteia(0, 5)
+				sorteio3 = u.sorteia(0, 4)
+				
+				item = tipos[sorteio1] + " " + cores[sorteio2] + " " + tamanho[sorteio3]
+	
+				para (inteiro j=0; j<EST; j++){
+					se (item == produtos[j]) {
+						igual = verdadeiro
+						pare
+					}					
+				}
+	
+				se (nao igual)
+					produtos[i] = item
+			} enquanto (igual)
+		}
+
+		para (inteiro i=0; i<EST; i++){
+			escreva(produtos[i] +"\n")
+		}
+>>>>>>> 642a9fffc91123ca29e7beae12b36b0b47079302
 	}
 }
 
@@ -114,7 +151,11 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
+<<<<<<< HEAD
  * @POSICAO-CURSOR = 617; 
+=======
+ * @POSICAO-CURSOR = 2207; 
+>>>>>>> 642a9fffc91123ca29e7beae12b36b0b47079302
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
