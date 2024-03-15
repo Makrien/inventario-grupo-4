@@ -127,9 +127,9 @@ programa
 													
 			
 			se(tipos.cadeia_e_inteiro(codProd2, 10)){				
-			   codProd = tipos.cadeia_para_inteiro(codProd2, 10)
+			   codProd = tipos.cadeia_para_inteiro(codProd2, 10)			   
 			   se(codProd >= 1 e codProd < 20){
-		 	   escreva(vetor[codProd])			 	
+		 	   escreva(vetor[(codProd -1)])			 	
 		 	   } senao escreva("opção inválida")			 	
 			}senao escreva("opção inválida")
 				
@@ -142,7 +142,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 2619; 
+ * @POSICAO-CURSOR = 2739; 
  * @DOBRAMENTO-CODIGO = [24, 38, 72, 109];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
