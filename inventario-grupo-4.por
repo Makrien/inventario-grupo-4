@@ -1,26 +1,74 @@
 programa
 {
+	inclua biblioteca Util -->u
 	inclua biblioteca Tipos --> tipos
-
+	
+	
 	const cadeia LINHA_SIMPLES = "-----------------------------------\n"
 	const cadeia LINHA_DUPLA = "===================================\n"
-	
+	const inteiro T =20
+
+		cadeia vRoupas[] = {"Camisa", "Camiseta", "Calça", "Bermuda"}
+		cadeia vCores[] = {"vermelho", "preto", "amarelo", "azul", "branco", "verde"}
+		cadeia vTamanhos[] = {"PP", "P", "M", "G", "GG"}
+
+		cadeia vProdutos[T]
+		
 	funcao inicio()
 	{
-    inteiro opcao
-
-		opcao = menuEscolherOpcao()
-    escreva(opcao)
-
-    escolha(opcao)
-    {
-      caso 1: // Função que apresenta a legenda dos produtos a partir de seus códigos
-      caso 2: // Função que atualiza a quantidade dos produtos escolhidos pelo usuário
-      caso 3: // Função que imprime os produtos em ordem alfabética
-      caso 4: // Nada
-    }
+		geradorEstoque()
+		menu()
 	}
-
+	
+	
+	funcao menu(){
+	    inteiro opcao
+	
+			opcao = menuEscolherOpcao()
+	    escreva(opcao)
+	
+	    escolha(opcao)
+	    {
+	      caso 1: // Função que apresenta a legenda dos produtos a partir de seus códigos
+	      caso 2: // Função que atualiza a quantidade dos produtos escolhidos pelo usuário
+	      caso 3: // Função que imprime os produtos em ordem alfabética
+	      caso 4: // Nada
+	    }
+	}
+	funcao geradorEstoque()
+	{
+		
+		
+		inteiro sorteio1, sorteio2, sorteio3
+		cadeia item
+		logico igual
+		
+		para(inteiro i=0; i <T; i++){
+			faca{
+				igual= falso
+				
+				sorteio1 = u.sorteia(0,3)
+				sorteio2 = u.sorteia(0,5)
+				sorteio3 = u.sorteia(0,4)
+				item =  vRoupas[sorteio1] + " "+ vCores[sorteio2] +" "+ vTamanhos[sorteio3]
+												
+				para (inteiro j=0; j< T; j++){
+				 	se(item == vProdutos[j]){
+				 		igual = verdadeiro	
+				 		pare
+				 	}
+				 					 	
+				}
+				se (nao igual)
+					vProdutos[i] = item
+			}enquanto (igual)
+		}
+			
+		//para (inteiro t=0; t<T;t++){
+			//escreva(vProdutos[t] +"\n")
+		//}
+		
+	}
 	funcao inteiro menuEscolherOpcao()
 	{
 		cadeia opcaoCadeia
@@ -73,7 +121,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1468; 
+ * @POSICAO-CURSOR = 479; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
