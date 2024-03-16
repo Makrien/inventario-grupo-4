@@ -5,7 +5,7 @@ programa
 	inclua biblioteca Texto --> t
 
 	// Define o tamanho do estoque, i.e. tamanho de matriz e vetor
-	const inteiro T = 20
+	const inteiro T = 10
 
 	// Vetores usados para gerar estoque por função sorteio
 	cadeia vRoupas[] = {"Camisa    ", "Camiseta  ", "Calça     ", "Bermuda   "}
@@ -104,10 +104,7 @@ programa
 			leia(opcaoCadeia)
 
 			// Checa se é possível converter a cadeia lida do usuário em inteiro 
-			se (tipos.cadeia_e_inteiro(opcaoCadeia, 10))
-			{
-				opcaoInt = tipos.cadeia_para_inteiro(opcaoCadeia, 10)				
-			}
+			opcaoInt = checarValidezInteiro(opcaoCadeia)
 			
 			limpa()
 
@@ -185,7 +182,7 @@ programa
     	      se (opcao != 3)
 			aguarde()
 			limpa()
-    		 }enquanto(opcao != 3)  
+    		 }enquanto(opcao != 3)
     	}	
 
     	funcao adicionarQuantTodos()
@@ -242,7 +239,8 @@ programa
     		
     	}
 
-    	funcao logico adicionar(inteiro codProd,cadeia codProd2, inteiro i,inteiro vQuant0[], cadeia opcao){    	   		   		 				 
+    	funcao logico adicionar(inteiro codProd,cadeia codProd2, inteiro i,inteiro vQuant0[], cadeia opcao)
+    	{    	   		   		 				 
 		 	 			
     		 		   escreva("\nInforme a quantidade do produto: ")
 				   leia(vQuant0[codProd-1])
@@ -257,7 +255,8 @@ programa
 			 retorne falso		   			
     }
 
-	funcao inteiro validarInteiro(cadeia sOpcao) {
+	funcao inteiro validarInteiro(cadeia sOpcao)
+	{
 		se (tipos.cadeia_e_inteiro(sOpcao, 10)) {
 			inteiro opcao = tipos.cadeia_para_inteiro(sOpcao, 10)
 			retorne opcao
@@ -283,13 +282,20 @@ programa
 		
 		para (inteiro t=0; t<T;t++)
 		{
-			se (t < 9) escreva ("  0", t + 1)
-			senao escreva ("  ", t + 1)
-			
-			escreva("   -   ",vProdutos[t], "      ") 
-			
-			se (vQuantidade[t] == -1) escreva("   0\n")
-			senao escreva(vQuantidade[t], "\n")
+			se (vProdutos[t] == "")
+			{
+				
+			}
+			senao
+			{
+				se (t < 9) escreva ("  0", t + 1)
+				senao escreva ("  ", t + 1)
+				
+				escreva("   -   ",vProdutos[t], "      ") 
+				
+				se (vQuantidade[t] == -1) escreva("   0\n")
+				senao escreva(vQuantidade[t], "\n")
+			}
 		}
 
 		write("-", 49)
@@ -430,13 +436,23 @@ programa
 	{
 		para (inteiro n = 0; n < T; n++)
 		{
-			
+			vProdutos[n] = ""
 		}
 	}
 
 	funcao excluirCadastroIndividual()
 	{
-		
+		cadeia indiceStr
+		inteiro indiceInt = -1
+
+		enquanto (indiceInt < 1 e indiceInt > T)
+		{
+			escreva("Código do produto a ser excluído: ")
+			leia(indiceStr)
+
+			indiceInt = checarValidezInteiro(indiceStr)
+		}
+		se (vProdutos[indiceInt] == "") escreva("Nenhum produto encontrado para exclusão.\n")
 	}
 
 
@@ -455,10 +471,10 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 9322; 
- * @DOBRAMENTO-CODIGO = [17, 36, 49, 84, 121, 129, 161, 190, 216, 244, 259, 268, 275, 301, 316, 324, 333, 341, 355, 378, 387, 394];
+ * @POSICAO-CURSOR = 9688; 
+ * @DOBRAMENTO-CODIGO = [17, 36, 49, 84, 118, 126, 158, 187, 213, 241, 257, 267, 274, 307, 322, 330, 339, 347, 361, 384, 393, 400];
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
+ * @SIMBOLOS-INSPECIONADOS = {vQuantidade, 16, 9, 11};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
