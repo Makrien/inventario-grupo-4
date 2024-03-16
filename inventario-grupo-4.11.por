@@ -2,6 +2,7 @@ programa
 {
 	inclua biblioteca Util -->u
 	inclua biblioteca Tipos --> tipos
+	inclua biblioteca Texto --> t
 	
 	
 	const cadeia LINHA_SIMPLES = "-----------------------------------\n"
@@ -18,7 +19,7 @@ programa
 	funcao inicio()
 	{
 		geradorEstoque()
-		//menu()
+		menu()
 		localizarCodigo(vProdutos, vQuantidade)
 		
 		
@@ -33,7 +34,7 @@ programa
 	
 	    escolha(opcao)
 	    {
-	      caso 1: // Função que apresenta a legenda dos produtos a partir de seus códigos
+	      caso 1: localizarCodigo(vProdutos, vQuantidade) // Função que apresenta a legenda dos produtos a partir de seus códigos
 	      caso 2: // Função que atualiza a quantidade dos produtos escolhidos pelo usuário
 	      caso 3: // Função que imprime os produtos em ordem alfabética
 	      caso 4: // Nada
@@ -138,29 +139,43 @@ programa
 		inteiro codProd
 		cadeia codProd2		
 		inteiro i = 0		
-		caracter opcao
+		cadeia opcao
+		logico localizou = falso
 		
 
 		faca{
 			escreva("\nDigite o código do produto.")
 			leia(codProd2)				
 																														
-				se(tipos.cadeia_e_inteiro(codProd2, 10)){				
-				   codProd = tipos.cadeia_para_inteiro(codProd2, 10)			   
-					   se(codProd >= 1 e codProd <= 3){		 	   
-				 	   escreva(vetor[(codProd -1)])// exibir o produto selecionado 			 	 			 	   
-					   escreva("\nInforme a quantidade do produto: ")
-					   leia(vQuant[codProd-1])				   				  				   				   					  		 	     	
-				 	   } senao escreva("opção inválida")		 	   		 	   			 	
-				}senao escreva("opção inválida")							 
-			
-			escreva("Deseja add nova quantidade de outro produto?")
+			se(tipos.cadeia_e_inteiro(codProd2, 10)){				
+			   codProd = tipos.cadeia_para_inteiro(codProd2, 10)			   
+				   se(codProd >= 1 e codProd <= 3){		 	   
+			 	   escreva(vetor[(codProd -1)])// exibir o produto selecionado 			 	 			 	   
+				   escreva("\nInforme a quantidade do produto: ")
+				   leia(vQuant[codProd-1])
+				   i++				   				  				   				   					  		 	     	
+			 	   } senao escreva("\nOpção inválida")		 	   		 	   			 	
+			}senao escreva("\nOpção inválida")	
+									 
+			se(i < 3){
+			escreva("\nDeseja add nova quantidade de outro produto?")
 			leia(opcao)
-		}enquanto((opcao == 's') ou (opcao == 'S'))
-		 escreva("Obrigado por utilizar o programa!")		 
-    }
+				se(t.caixa_alta(opcao) == "S"){
+				localizou = verdadeiro	
+				}				
+			}senao escreva("\nvetor cheio") 				 
+			 		 		
+		}enquanto(localizou e i < 3)
+		 escreva("\nObrigado por utilizar o programa!")
+		 aguarde()
+		 menu()	 
+    }	 
 			
-
+	funcao aguarde() {
+			cadeia tecla
+			escreva("\nPressione uma tecla para continuar...")
+			leia(tecla)
+		}
 		
 		
 						
@@ -187,10 +202,10 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 3781; 
- * @DOBRAMENTO-CODIGO = [27, 41, 75, 112, 120];
+ * @POSICAO-CURSOR = 3881; 
+ * @DOBRAMENTO-CODIGO = [42, 76, 113, 121];
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {vQuant, 136, 48, 6}-{i, 140, 10, 1};
+ * @SIMBOLOS-INSPECIONADOS = {vetor, 137, 31, 5}-{vQuant, 137, 48, 6}-{i, 141, 10, 1}-{opcao, 142, 9, 5}-{localizou, 143, 9, 9};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
