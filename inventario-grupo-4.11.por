@@ -17,10 +17,10 @@ programa
 		inteiro vQuantidade[T]
 		
 	funcao inicio()
-	{
-		geradorEstoque()
-		menu()
-		localizarCodigo(vProdutos, vQuantidade)
+	{	 menuProduto()
+		//geradorEstoque()
+		//menu()
+		//localizarCodigo(vProdutos, vQuantidade)
 		
 		
 	}
@@ -133,14 +133,24 @@ programa
                 
     }
 	*/
+
+	
+	// localizar código
+	// pergutnar usuário ser quer atualizar quantidade 
+	// add quantidade 
+	// pergutnar se deseja continuar 
+	
+
 	
 	funcao localizarCodigo(cadeia vetor[], inteiro vQuant[]){
 		
 		inteiro codProd
 		cadeia codProd2		
-		inteiro i = 0		
-		cadeia opcao
+		inteiro i = 0
+		inteiro vQuant0[3] 		
+		//cadeia opcao = "n"
 		logico localizou = falso
+		
 		
 
 		faca{
@@ -150,32 +160,80 @@ programa
 			se(tipos.cadeia_e_inteiro(codProd2, 10)){				
 			   codProd = tipos.cadeia_para_inteiro(codProd2, 10)			   
 				   se(codProd >= 1 e codProd <= 3){		 	   
-			 	   escreva(vetor[(codProd -1)])// exibir o produto selecionado 			 	 			 	   
-				   escreva("\nInforme a quantidade do produto: ")
-				   leia(vQuant[codProd-1])
-				   i++				   				  				   				   					  		 	     	
-			 	   } senao escreva("\nOpção inválida")		 	   		 	   			 	
-			}senao escreva("\nOpção inválida")	
-									 
-			se(i < 3){
-			escreva("\nDeseja add nova quantidade de outro produto?")
-			leia(opcao)
-				se(t.caixa_alta(opcao) == "S"){
-				localizou = verdadeiro	
-				}				
-			}senao escreva("\nvetor cheio") 				 
-			 		 		
-		}enquanto(localizou e i < 3)
+			 	   localizou = verdadeiro
+			 	   i++
+			 	   escreva(vetor[(codProd -1)])// exibir o produto selecionado 			 	 			 	   				  			   				 				   	 		 		
+				   }senao escreva("\nOpção inválida")		 	   		 	   			 	
+			}senao escreva("\nOpção inválida")
+		 
+		 }enquanto(localizou e i < 3)
 		 escreva("\nObrigado por utilizar o programa!")
 		 aguarde()
 		 menu()	 
-    }	 
-			
-	funcao aguarde() {
+    }
+
+    funcao menuProduto(){
+    		 cadeia sOpcao
+    		 inteiro opcao = 0 
+
+    		 faca{
+    		 
+    	      escreva("[1] Adicionar quantidade\n",
+    	      	    "[2] Atualizar quantidade\n",
+    	      	    "[3] Sair\n")
+
+    	      leia(sOpcao)
+    	      
+    	      opcao = validarInteiro(sOpcao)  
+    	      
+    	      escolha(opcao){
+    	      	caso 1: adicionarQuant() pare
+    	      	caso 2: atualizarQuant() pare
+    	      	caso 3: escreva("\nObrigado por utilizar o Programa\n\n") pare
+    	      	caso contrario: escreva("\n\nOpção inválida\n\n")
+    	      	}
+    	      se (opcao != 3)
+			aguarde() 
+    		 }enquanto(opcao != 3)  
+    	}	
+
+    	funcao adicionarQuant(){
+    		escreva("Funcionado!")
+    		}
+    	funcao atualizarQuant(){
+    		escreva("Funcionado!")
+    		}
+    
+    funcao logico adicionar(inteiro codProd,cadeia codProd2, inteiro i,inteiro vQuant0[], cadeia opcao){    	   		   		 				 
+		 	 			
+    		 		   escreva("\nInforme a quantidade do produto: ")
+				   leia(vQuant0[codProd-1])
+				   i++
+		 se(i < 3){
+			escreva("\nDeseja add nova quantidade de outro produto?")
+			leia(opcao)
+				se(t.caixa_alta(opcao) == "S"){
+				retorne verdadeiro 	
+				}				
+			}senao escreva("\nVetor cheio")
+			 retorne falso		   			
+    }
+
+    funcao inteiro validarInteiro(cadeia sOpcao) {
+		se (tipos.cadeia_e_inteiro(sOpcao, 10)) {
+			inteiro opcao = tipos.cadeia_para_inteiro(sOpcao, 10)
+			retorne opcao
+		}
+
+		retorne -1
+	}
+   			
+     funcao aguarde() {
 			cadeia tecla
 			escreva("\nPressione uma tecla para continuar...")
 			leia(tecla)
-		}
+	}
+
 		
 		
 						
@@ -202,10 +260,9 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 3881; 
- * @DOBRAMENTO-CODIGO = [42, 76, 113, 121];
+ * @POSICAO-CURSOR = 5909; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {vetor, 137, 31, 5}-{vQuant, 137, 48, 6}-{i, 141, 10, 1}-{opcao, 142, 9, 5}-{localizou, 143, 9, 9};
+ * @SIMBOLOS-INSPECIONADOS = {vetor, 145, 31, 5}-{vQuant, 145, 48, 6}-{i, 149, 10, 1}-{vQuant0, 150, 10, 7}-{localizou, 152, 9, 9};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
